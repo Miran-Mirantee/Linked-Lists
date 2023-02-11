@@ -49,11 +49,24 @@ class LinkedList {
 
   at(index) {
     let next = this.headNode;
-    if (index < 0) return null;
+    if (index < 0 || index >= this.size()) return null;
     for (let i = 0; i < index; i++) {
       next = next.nextNode;
     }
     return next;
+  }
+
+  pop() {
+    if (this.headNode === this.tailNode) {
+      this.headNode = null;
+      this.tailNode = null;
+      return;
+    }
+
+    let lastIndex = this.size() - 1;
+    let secondLastNode = this.at(lastIndex - 1);
+    this.tailNode = secondLastNode;
+    secondLastNode.nextNode = null;
   }
 }
 
@@ -74,12 +87,22 @@ list.append("what4");
 // console.log(list.tail());
 // console.log(list.size());
 
-console.log(list.at(0));
-console.log(list.at(1));
-console.log(list.at(2));
-console.log(list.at(3));
-console.log(list.at(-1));
-console.log(list.at(4));
+// console.log(list.at(0));
+// console.log(list.at(1));
+// console.log(list.at(2));
+// console.log(list.at(3));
+// console.log(list.at(-1));
+// console.log(list.at(5));
+
+console.log(list.tail());
+list.pop();
+console.log(list.tail());
+list.pop();
+console.log(list.tail());
+list.pop();
+console.log(list.tail());
+list.pop();
+console.log(list.tail());
 
 // console.log(list);
 
