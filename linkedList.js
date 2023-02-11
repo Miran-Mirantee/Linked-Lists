@@ -29,6 +29,16 @@ class LinkedList {
     this.headNode = node;
   }
 
+  size() {
+    let count = 0;
+    let next = this.headNode;
+    while (next != null) {
+      count += 1;
+      next = next.nextNode;
+    }
+    console.log(count);
+  }
+
   head() {
     console.log(this.headNode);
   }
@@ -46,22 +56,21 @@ class Node {
 }
 
 const list = new LinkedList();
-// list.append("what");
+// list.append("what1");
 // list.append("what2");
 // list.append("what3");
 // list.append("what4");
 // list.append("what5");
 // list.append("what6");
+list.prepend("what7");
+list.head();
+list.tail();
+list.size();
 // console.log(list);
-// list.head();
-// list.tail();
-// list.prepend("what7");
-// list.head();
-// list.tail();
 
-list.prepend("test");
-list.head();
-list.tail();
-list.append("test2");
-list.head();
-list.tail();
+// list.prepend("test");
+// list.head();
+// list.tail();
+// list.append("test2");
+// list.head();
+// list.tail();
