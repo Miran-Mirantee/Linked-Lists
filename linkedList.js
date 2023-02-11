@@ -36,15 +36,15 @@ class LinkedList {
       count += 1;
       next = next.nextNode;
     }
-    console.log(count);
+    return count;
   }
 
   head() {
-    console.log(this.headNode);
+    return this.headNode;
   }
 
   tail() {
-    console.log(this.tailNode);
+    return this.tailNode;
   }
 }
 
@@ -63,9 +63,9 @@ const list = new LinkedList();
 // list.append("what5");
 // list.append("what6");
 list.prepend("what7");
-list.head();
-list.tail();
-list.size();
+console.log(list.head());
+console.log(list.tail());
+console.log(list.size());
 // console.log(list);
 
 // list.prepend("test");
