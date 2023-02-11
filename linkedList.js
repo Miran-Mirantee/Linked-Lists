@@ -68,6 +68,22 @@ class LinkedList {
     this.tailNode = secondLastNode;
     secondLastNode.nextNode = null;
   }
+
+  contains(value) {
+    if (typeof this.find(value) === "number") return true;
+    return false;
+  }
+
+  find(value) {
+    let index = 0;
+    let next = this.headNode;
+    while (next != null) {
+      if (next.value === value) return index;
+      index += 1;
+      next = next.nextNode;
+    }
+    return null;
+  }
 }
 
 class Node {
@@ -83,6 +99,18 @@ list.append("what2");
 list.append("what3");
 list.append("what4");
 
+// console.log(list.contains(1));
+// console.log(list.contains("1"));
+// console.log(list.contains("what1"));
+// console.log(list.contains("what2"));
+// console.log(list.contains("what3"));
+// console.log(list.contains("what4"));
+
+console.log(list.find("what2"));
+console.log(list.find(22));
+
+console.log(list.at(1));
+
 // console.log(list.head());
 // console.log(list.tail());
 // console.log(list.size());
@@ -94,17 +122,15 @@ list.append("what4");
 // console.log(list.at(-1));
 // console.log(list.at(5));
 
-console.log(list.tail());
-list.pop();
-console.log(list.tail());
-list.pop();
-console.log(list.tail());
-list.pop();
-console.log(list.tail());
-list.pop();
-console.log(list.tail());
-
-// console.log(list);
+// console.log(list.tail());
+// list.pop();
+// console.log(list.tail());
+// list.pop();
+// console.log(list.tail());
+// list.pop();
+// console.log(list.tail());
+// list.pop();
+// console.log(list.tail());
 
 // list.prepend("test");
 // list.head();
