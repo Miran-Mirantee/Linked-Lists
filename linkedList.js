@@ -84,6 +84,19 @@ class LinkedList {
     }
     return null;
   }
+
+  toString() {
+    const arr = [];
+    let sequence;
+    let next = this.headNode;
+    while (next != null) {
+      arr.push(`( ${next.value} )`);
+      next = next.nextNode;
+    }
+    arr.push(new String(this.tailNode.nextNode));
+    sequence = arr.join(" -> ");
+    return sequence;
+  }
 }
 
 class Node {
@@ -98,6 +111,12 @@ list.append("what1");
 list.append("what2");
 list.append("what3");
 list.append("what4");
+list.append("what5");
+list.append("what6");
+list.append("what7");
+list.append("what8");
+
+console.log(list.toString());
 
 // console.log(list.contains(1));
 // console.log(list.contains("1"));
@@ -106,10 +125,9 @@ list.append("what4");
 // console.log(list.contains("what3"));
 // console.log(list.contains("what4"));
 
-console.log(list.find("what2"));
-console.log(list.find(22));
-
-console.log(list.at(1));
+// console.log(list.find("what2"));
+// console.log(list.find(22));
+// console.log(list.at(1));
 
 // console.log(list.head());
 // console.log(list.tail());
