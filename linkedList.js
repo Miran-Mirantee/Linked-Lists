@@ -97,6 +97,23 @@ class LinkedList {
     sequence = arr.join(" -> ");
     return sequence;
   }
+
+  insertAt(value, index) {
+    if (index < 0 || index > this.size() - 1) {
+      console.log(`Index must be between 0 - ${this.size() - 1}`);
+      return;
+    }
+
+    const node = new Node(value);
+    let currentNode = this.at(index);
+    let previousNode = this.at(index - 1);
+    if (previousNode === null) {
+      this.headNode = node;
+    } else {
+      previousNode.nextNode = node;
+    }
+    node.nextNode = currentNode;
+  }
 }
 
 class Node {
@@ -116,7 +133,14 @@ list.append("what6");
 list.append("what7");
 list.append("what8");
 
-console.log(list.toString());
+// console.log(list.size());
+// console.log(list.toString());
+// console.log(list.head());
+
+// list.insertAt("how1", 3);
+// console.log(list.size());
+// console.log(list.toString());
+// console.log(list.head());
 
 // console.log(list.contains(1));
 // console.log(list.contains("1"));
