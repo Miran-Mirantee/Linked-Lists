@@ -102,8 +102,8 @@ class LinkedList {
     if (!this.checkIndex(index)) return;
 
     const node = new Node(value);
-    let currentNode = this.at(index);
     let previousNode = this.at(index - 1);
+    let currentNode = this.at(index);
     if (previousNode === null) {
       this.headNode = node;
     } else {
@@ -112,11 +112,27 @@ class LinkedList {
     node.nextNode = currentNode;
   }
 
-  removeAt(index) {}
+  removeAt(index) {
+    if (!this.checkIndex(index)) return;
+    let previousNode = this.at(index - 1);
+    let currentNode = this.at(index);
+    let afterCurrentNode = currentNode.nextNode;
+
+    if (afterCurrentNode === null) {
+      this.tailNode = previousNode;
+    }
+
+    if (previousNode === null) {
+      this.headNode = afterCurrentNode;
+    } else {
+      previousNode.nextNode = afterCurrentNode;
+    }
+
+    currentNode.nextNode = null;
+  }
 
   checkIndex(index) {
     if (index < 0 || index > this.size() - 1) {
-      console.log(`Index must be between 0 - ${this.size() - 1}`);
       return false;
     }
     return true;
@@ -135,57 +151,6 @@ list.append("what1");
 list.append("what2");
 list.append("what3");
 list.append("what4");
-list.append("what5");
-list.append("what6");
-list.append("what7");
-list.append("what8");
 
-console.log(list.at(-1));
-
-// console.log(list.size());
-// console.log(list.toString());
-// console.log(list.head());
-
-// list.insertAt("how1", 1);
-// console.log(list.size());
-// console.log(list.toString());
-// console.log(list.head());
-
-// console.log(list.contains(1));
-// console.log(list.contains("1"));
-// console.log(list.contains("what1"));
-// console.log(list.contains("what2"));
-// console.log(list.contains("what3"));
-// console.log(list.contains("what4"));
-
-// console.log(list.find("what2"));
-// console.log(list.find(22));
-// console.log(list.at(1));
-
-// console.log(list.head());
-// console.log(list.tail());
-// console.log(list.size());
-
-// console.log(list.at(0));
-// console.log(list.at(1));
-// console.log(list.at(2));
-// console.log(list.at(3));
-// console.log(list.at(-1));
-// console.log(list.at(5));
-
-// console.log(list.tail());
-// list.pop();
-// console.log(list.tail());
-// list.pop();
-// console.log(list.tail());
-// list.pop();
-// console.log(list.tail());
-// list.pop();
-// console.log(list.tail());
-
-// list.prepend("test");
-// list.head();
-// list.tail();
-// list.append("test2");
-// list.head();
-// list.tail();
+// test functions here
+console.log(list.toString());
