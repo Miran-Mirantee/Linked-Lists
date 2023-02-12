@@ -49,7 +49,7 @@ class LinkedList {
 
   at(index) {
     let next = this.headNode;
-    if (index < 0 || index >= this.size()) return null;
+    if (!this.checkIndex(index)) return null;
     for (let i = 0; i < index; i++) {
       next = next.nextNode;
     }
@@ -99,10 +99,7 @@ class LinkedList {
   }
 
   insertAt(value, index) {
-    if (index < 0 || index > this.size() - 1) {
-      console.log(`Index must be between 0 - ${this.size() - 1}`);
-      return;
-    }
+    if (!this.checkIndex(index)) return;
 
     const node = new Node(value);
     let currentNode = this.at(index);
@@ -113,6 +110,16 @@ class LinkedList {
       previousNode.nextNode = node;
     }
     node.nextNode = currentNode;
+  }
+
+  removeAt(index) {}
+
+  checkIndex(index) {
+    if (index < 0 || index > this.size() - 1) {
+      console.log(`Index must be between 0 - ${this.size() - 1}`);
+      return false;
+    }
+    return true;
   }
 }
 
@@ -133,11 +140,13 @@ list.append("what6");
 list.append("what7");
 list.append("what8");
 
+console.log(list.at(-1));
+
 // console.log(list.size());
 // console.log(list.toString());
 // console.log(list.head());
 
-// list.insertAt("how1", 3);
+// list.insertAt("how1", 1);
 // console.log(list.size());
 // console.log(list.toString());
 // console.log(list.head());
